@@ -129,3 +129,20 @@ input:checked ~ label .container_title,
 .accordion:hover {
   color: white;
 }
+
+/* Mobile styles (320x568) */
+@media only screen and (max-width: 480px) {
+  /* Update font sizes */
+  h1 {
+    font-size: 20px;
+  }
+  .container_title {
+    font-size: 16px;
+  }
+  /* Update image sizes */
+  .mem,
+  .meme_img {
+    max-width: 100%;
+    height: auto;
+  }
+}
