@@ -114,6 +114,13 @@ input:checked ~ .container_info .angle_down {
   transition: all 0.8s ease-in-out;
 }
 
+/* Styles for when the "mem_input" checkbox is checked or when the container or angle_down element is hovered or focused */
+.mem_input:checked ~ label .angle_down,
+.container:hover .angle_down,
+.container:focus .angle_down {
+  transform: rotate(-180deg);
+  animation: rotation 1.5s;
+}
 
 /* Styles for when the container is hovered or when the corresponding input is checked or when the accordion is hovered */
 input:checked ~ label .container_title,
