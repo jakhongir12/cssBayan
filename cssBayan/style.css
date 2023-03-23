@@ -1,0 +1,182 @@
+/* Reset styles */
+/* Reset default margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Default styles */
+/* Set default font family, font size, line height, text align, and background color for body */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  background-color: gray;
+}
+
+/* Styles for the accordion container */
+.accordion {
+  width: 70%; /* Set width of accordion to 70% of parent element */
+  margin: 0 auto; /* Center the accordion horizontally within the parent element */
+  cursor: pointer; /* Cursor style for the accordion */
+}
+
+/* Styles for each section within the accordion */
+section {
+  width: 100%; /* Set width of each section to 100% of parent element */
+  display: none; /* Hide each section by default */
+}
+
+/* Styles for input elements */
+input {
+  width: 0; /* Set width of input to 0 to hide the default checkbox */
+}
+
+/* Styles for the container holding the title and toggle arrow */
+.container_info {
+  display: flex; /* Display the container as a flex container */
+  justify-content: space-between; /* Align the container's children to the left and right edges of the container */
+}
+
+/* Styles for the title of each section */
+.container_title {
+  font-size: larger; /* Set the font size to larger than the default */
+  font-weight: bold; /* Set the font weight to bold */
+  margin-bottom: 5px; /* Add some space between the title and the toggle arrow */
+  filter: invert(
+    100%
+  ); /* Invert the color of the title for better visibility when the section is open */
+}
+
+/* Styles for images within the accordion */
+img {
+  width: auto; /* Allow the image to resize based on its aspect ratio */
+  height: 500px; /* Set a fixed height for images within the accordion */
+}
+
+/* Styles for the toggle arrow icon */
+.angle_down {
+  width: auto; /* Allow the icon to resize based on its aspect ratio */
+  height: 40px; /* Set a fixed height for the icon */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the icon */
+  display: none; /* Hide the icon by default */
+}
+
+/* Styles for when a section is open */
+input:checked ~ section {
+  display: block; /* Display the section when its corresponding checkbox is checked */
+  animation: width 1s; /* Animate the width of the section opening */
+}
+
+/* Styles for when hovering over the accordion or a section */
+.container:hover section {
+  display: block; /* Display the section when hovering over its container */
+  animation: width 1s; /* Animate the width of the section opening */
+}
+.angle_down:hover section {
+  display: block; /* Display the section when hovering over the toggle arrow */
+  animation: width 1s; /* Animate the width of the section opening */
+}
+
+/* Styles for the toggle arrow icon when a section is open */
+input:checked ~ .container_info .angle_down {
+  animation: rotation 1.5s; /* Animate the rotation of the toggle arrow */
+  transform: rotate(180deg); /* Rotate the toggle arrow 180 degrees */
+}
+
+/* Styles for the container dividing each section */
+.container {
+  border-top: 3px black solid; /* Add a border to the top of each container */
+}
+
+/* Styles for when hovering over the accordion */
+.accordion:hover .angle_down {
+  display: block; /* Display the toggle arrow icon when hovering over the accordion */
+}
+
+/* Keyframes for rotating the down arrow icon */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+/* Styles for when the accordion is hovered */
+.accordion:hover .container,
+.container:hover .angle_down,
+.container:focus .angle_down {
+  opacity: 1;
+  transition: all 0.8s ease-in-out;
+}
+
+/* Styles for when the "mem_input" checkbox is checked or when the container or angle_down element is hovered or focused */
+.mem_input:checked ~ label .angle_down,
+.container:hover .angle_down,
+.container:focus .angle_down {
+  transform: rotate(-180deg);
+  animation: rotation 1.5s;
+}
+
+/* Styles for when the container is hovered or when the corresponding input is checked or when the accordion is hovered */
+input:checked ~ label .container_title,
+.container:hover .container_title,
+.accordion:hover {
+  color: white;
+}
+
+/* Mobile styles (320x568) */
+@media only screen and (max-width: 480px) {
+  /* Update font sizes */
+  h1 {
+    font-size: 20px;
+  }
+  .container_title {
+    font-size: 16px;
+  }
+  /* Update image sizes */
+  .mem,
+  .meme_img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablet styles (820x1180) */
+@media only screen and (min-width: 481px) and (max-width: 1199px) {
+  /* Update font sizes */
+  h1 {
+    font-size: 30px;
+  }
+  .container_title {
+    font-size: 20px;
+  }
+  /* Update image sizes */
+  .mem,
+  .meme_img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Desktop styles (1920x1080) */
+@media only screen and (min-width: 1200px) {
+  /* Update font sizes */
+  h1 {
+    font-size: 40px;
+  }
+  .container_title {
+    font-size: 24px;
+  }
+  /* Update image sizes */
+  .mem,
+  .meme_img {
+    max-width: 100%;
+    height: 500px;
+  }
+}
